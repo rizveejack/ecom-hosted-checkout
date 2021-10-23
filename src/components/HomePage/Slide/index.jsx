@@ -1,7 +1,15 @@
-import Banner from "./Banner"
-import Carosel from "./Carosel"
+import Slider from "react-slick";
+import Banner from "./Banner";
+import Carosel from "./Carosel";
 
-const Slider = () => {
+const Slide = () => {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        autoplay: true,
+    };
     return (
         <section className="hero-area">
             <div className="container">
@@ -9,7 +17,11 @@ const Slider = () => {
                     <div className="col-lg-8 col-12 custom-padding-right">
                         <div className="slider-head">
                             <div className="tns-outer" id="tns1-ow"><div className="tns-ovh"><div className="tns-inner" ><div className="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal">
-                                <Carosel />
+                                <Slider {...settings}>
+                                    <Carosel />
+                                    <Carosel />
+                                    <Carosel />
+                                </Slider>
                             </div></div></div></div>
                         </div>
                     </div>
@@ -30,4 +42,4 @@ const Slider = () => {
     )
 }
 
-export default Slider
+export default Slide

@@ -1,4 +1,6 @@
 import { ApolloProvider } from "@apollo/client"
+import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick.css"
 import client from "../apollo/client"
 import { AppProvider } from "../global/AppProvider"
 import "../style/bootstrap.min.css"

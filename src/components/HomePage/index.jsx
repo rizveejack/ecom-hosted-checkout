@@ -1,14 +1,14 @@
 import BannerSection from "./BannerSection"
 import CallToAction from "./CallToAction"
 import Shipinginfo from "./ShipingInfo"
-import Slider from "./Slider"
+import Slide from "./Slide"
 import Tranding from "./Tranding"
 
 
 const HomePage = () => {
     return (
         <div>
-            <Slider />
+            <Slide />
             <Tranding />
             <CallToAction />
             <BannerSection />
