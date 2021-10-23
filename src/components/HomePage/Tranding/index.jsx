@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleProduct from './SingleProduct'
+import ProductCart from '../../Product/ProductCart'
 
 const Tranding = () => {
     return (
@@ -15,7 +15,7 @@ const Tranding = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <SingleProduct />
+                    <ProductCart />
                 </div>
             </div>
         </section>

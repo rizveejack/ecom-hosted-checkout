@@ -21,7 +21,7 @@ const Header = () => {
                         <div className="col-lg-4 col-md-2 col-5">
                             <div className="middle-right-area">
                                 <div className="nav-hotline">
-                                    <i className="lni lni-phone"></i>
+                                    <i className="lni lni-phone bg-primary text-white"></i>
                                     <h3>Hotline:
                                         <span>(+100) 123 456 7890</span>
                                     </h3>

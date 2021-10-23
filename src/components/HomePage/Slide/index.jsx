@@ -4,7 +4,7 @@ import Carosel from "./Carosel";
 
 const Slide = () => {
     const settings = {
-        dots: false,
+        rtl: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,

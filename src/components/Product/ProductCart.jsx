@@ -1,6 +1,4 @@
-import React from 'react'
-
-const SingleProduct = (props) => {
+const ProductCart = (props) => {
     return (
         <div className="col-lg-3 col-md-6 col-12">
             <div className="single-product">
@@ -34,11 +32,11 @@ const SingleProduct = (props) => {
     )
 }
 
-SingleProduct.defaultProps = {
+ProductCart.defaultProps = {
     title: "Apple MacBook Air",
     image: "/images/products/product-8.jpg",
     review: "5.0 Review(s)",
     price: "$800.00"
 }
 
-export default SingleProduct
+export default ProductCart
