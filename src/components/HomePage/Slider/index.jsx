@@ -8,7 +8,7 @@ const Slider = () => {
                 <div className="row">
                     <div className="col-lg-8 col-12 custom-padding-right">
                         <div className="slider-head">
-                            <div className="tns-outer" id="tns1-ow"><div id="tns1-mw" className="tns-ovh"><div className="tns-inner" id="tns1-iw"><div className="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" id="tns1" style={{ transform: "translate3d(-50%, 0px, 0px); transition-duration: 0s;" }}>
+                            <div className="tns-outer" id="tns1-ow"><div className="tns-ovh"><div className="tns-inner" ><div className="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal">
                                 <Carosel />
                             </div></div></div></div>
                         </div>
