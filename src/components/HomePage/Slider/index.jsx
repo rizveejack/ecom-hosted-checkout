@@ -19,7 +19,7 @@ const Slider = () => {
                                 <Banner />
                             </div>
                             <div className="col-lg-12 col-md-6 col-12">
-                                <Banner />
+                                <Banner {...{ bclass: "style2" }} />
                             </div>
                         </div>
                     </div>
