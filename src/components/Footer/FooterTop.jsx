@@ -1,4 +1,5 @@
-import React from 'react'
+import Image from "next/image"
+import Link from "next/link"
 
 const FooterTop = () => {
     return (
@@ -8,9 +9,17 @@ const FooterTop = () => {
                     <div className="row">
                         <div className="col-lg-3 col-md-4 col-12">
                             <div className="footer-logo">
-                                <a href="index.html">
-                                    <img src="images/logo/white-logo.svg" alt="#" />
-                                </a>
+                                <Link href="/" passHref>
+                                    <span>
+                                        <Image
+                                            src="/images/logo/white-logo.svg"
+                                            alt="Footer Logo"
+                                            width={200}
+                                            height={42}
+                                            layout="fixed"
+                                        />
+                                    </span>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-lg-9 col-md-8 col-12">

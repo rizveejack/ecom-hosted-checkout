@@ -1,4 +1,4 @@
-import React from 'react'
+import Image from "next/image"
 
 const FooterBottom = () => {
     return (
@@ -9,7 +9,12 @@ const FooterBottom = () => {
                         <div className="col-lg-4 col-12">
                             <div className="payment-gateway">
                                 <span>We Accept:</span>
-                                <img src="images/footer/credit-cards-footer.png" alt="#" />
+                                <Image
+                                    src="/images/footer/credit-cards-footer.png" alt="payment"
+                                    width={200}
+                                    height={25}
+                                    layout="fixed"
+                                />
                             </div>
                         </div>
                         <div className="col-lg-4 col-12">
