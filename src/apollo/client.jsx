@@ -50,7 +50,13 @@ export const afterware = new ApolloLink((operation, forward) => {
 
 const client = new ApolloClient({
     link: middleware.concat(afterware.concat(httpLink)),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache({
+        typePolicies: {
+            MediaItem: {
+                merge: true,
+            }
+        }
+    })
 });
 
 export default client
