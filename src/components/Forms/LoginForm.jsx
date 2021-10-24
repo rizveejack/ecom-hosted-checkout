@@ -9,7 +9,6 @@ const LoginForm = () => {
         refetchQueries: [VIEWER]
     })
     const onSubmit = (data) => {
-        console.log(data);
         LoginAction({
             variables: data
         })

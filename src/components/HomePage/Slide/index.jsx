@@ -1,4 +1,6 @@
+import { useQuery } from "@apollo/client";
 import Slider from "react-slick";
+import PRODUCTS_AND_CATEGORIES from "../../../apollo/query/PRODUCTS_AND_CATEGORIES";
 import Banner from "./Banner";
 import Carosel from "./Carosel";
 
@@ -10,7 +12,12 @@ const Slide = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-    };
+    }
+
+    const { loading, error, data } = useQuery(PRODUCTS_AND_CATEGORIES)
+    const goods = data?.products?.nodes ?? []
+    const banner = goods.filter((product) => product.featured === true)
+
     return (
         <section className="hero-area">
             <div className="container">
@@ -19,9 +26,9 @@ const Slide = () => {
                         <div className="slider-head">
                             <div className="tns-outer" id="tns1-ow"><div className="tns-ovh"><div className="tns-inner" ><div className="hero-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal">
                                 <Slider {...settings}>
-                                    <Carosel />
-                                    <Carosel />
-                                    <Carosel />
+                                    {banner.map((product) => {
+                                        return <Carosel key={product.id} {...product} />
+                                    })}
                                 </Slider>
                             </div></div></div></div>
                         </div>

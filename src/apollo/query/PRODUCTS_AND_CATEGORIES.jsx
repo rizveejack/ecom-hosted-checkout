@@ -3,6 +3,7 @@ const PRODUCTS_AND_CATEGORIES = gql`query {
   productCategories(first: 3) {
     nodes {
       id
+      databaseId
       name
       slug
       image {
@@ -15,6 +16,9 @@ const PRODUCTS_AND_CATEGORIES = gql`query {
   products(first: 50) {
     nodes {
       id
+      databaseId
+      type
+      featured
       productId: databaseId
       averageRating
       slug

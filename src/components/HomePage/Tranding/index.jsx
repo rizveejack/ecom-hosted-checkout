@@ -1,7 +1,13 @@
-import React from 'react'
-import ProductCart from '../../Product/ProductCart'
+import { useQuery } from "@apollo/client";
+import PRODUCTS_AND_CATEGORIES from "../../../apollo/query/PRODUCTS_AND_CATEGORIES";
+import ProductCart from '../../Product/ProductCart';
 
 const Tranding = () => {
+    const { loading, error, data } = useQuery(PRODUCTS_AND_CATEGORIES)
+    const goods = data?.products?.nodes ?? []
+    const tranding_product = goods.filter((product) => product.type === "SIMPLE")
+
+
     return (
         <section className="trending-product section" style={{ marginTop: "12px" }}>
             <div className="container">
@@ -15,7 +21,12 @@ const Tranding = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <ProductCart />
+                    {tranding_product.map((product, index) => {
+                        if (index < 8) {
+                            return <ProductCart key={product.id} {...product} />
+                        }
+
+                    })}
                 </div>
             </div>
         </section>

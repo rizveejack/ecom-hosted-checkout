@@ -1,8 +1,11 @@
 import useRedox from "../../hook/useRedox";
 import CartItem from "./CartItem";
+import HotLine from "./HotLine";
+import LoginButton from "./LoginButton";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import Search from "./Search";
+import Wishlist from "./Wishlist";
 
 const Header = () => {
     const { gstate } = useRedox()
@@ -20,26 +23,11 @@ const Header = () => {
                         </div>
                         <div className="col-lg-4 col-md-2 col-5">
                             <div className="middle-right-area">
-                                <div className="nav-hotline">
-                                    <i className="lni lni-phone bg-primary text-white"></i>
-                                    <h3>Hotline:
-                                        <span>(+100) 123 456 7890</span>
-                                    </h3>
-                                </div>
+                                <HotLine />
                                 <div className="navbar-cart">
-                                    <div className="wishlist">
-                                        <a href="#">
-                                            <i className="lni lni-heart"></i>
-                                            <span className="total-items">0</span>
-                                        </a>
-                                    </div>
-                                    <div className="cart-items">
-                                        <a href="#" className="main-btn">
-                                            <i className="lni lni-cart"></i>
-                                            <span className="total-items">2</span>
-                                        </a>
-                                        <CartItem />
-                                    </div>
+                                    <LoginButton />
+                                    <Wishlist />
+                                    <CartItem />
                                 </div>
                             </div>
                         </div>

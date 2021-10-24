@@ -1,43 +1,81 @@
-import React from 'react'
+import { useMutation } from "@apollo/client";
+import Image from "next/image";
+import Link from "next/link";
+import REMOVE_CART from "../../apollo/mutation/UPDATE_CART";
+import VIEWER from "../../apollo/query/VIEWER";
+import useRedox from "../../hook/useRedox";
 
 const CartItem = () => {
-    return (
-        <div className="shopping-item">
-            <div className="dropdown-cart-header">
-                <span>2 Items</span>
-                <a href="cart.html">View Cart</a>
-            </div>
-            <ul className="shopping-list">
-                <li>
-                    <a href="#" className="remove" title="Remove this item"><i className="lni lni-close"></i></a>
-                    <div className="cart-img-head">
-                        <a className="cart-img" href="product-details.html"><img src="images/header/cart-items/item1.jpg" alt="#" /></a>
-                    </div>
+    const { gstate } = useRedox()
+    const products = gstate.data ? gstate?.data?.cart?.contents?.nodes : []
+    const items = products ? products.length : 0
+    const totalPrice = gstate.data ? gstate?.data?.cart?.total : 0
 
-                    <div className="content">
-                        <h4><a href="product-details.html">
-                            Apple Watch Series 6</a></h4>
-                        <p className="quantity">1x - <span className="amount">$99.00</span></p>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" className="remove" title="Remove this item"><i className="lni lni-close"></i></a>
-                    <div className="cart-img-head">
-                        <a className="cart-img" href="product-details.html"><img src="images/header/cart-items/item2.jpg" alt="#" /></a>
-                    </div>
-                    <div className="content">
-                        <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>
-                        <p className="quantity">1x - <span className="amount">$35.00</span></p>
-                    </div>
-                </li>
-            </ul>
-            <div className="bottom">
-                <div className="total">
-                    <span>Total</span>
-                    <span className="total-amount">$134.00</span>
+    const [removeItem, { loading, error, data }] = useMutation(REMOVE_CART, {
+        refetchQueries: [VIEWER]
+    })
+
+    const removeFromCart = (key) => {
+        if (!loading && !error) {
+            removeItem({
+                variables: {
+                    key: key,
+                    quantity: 0
+                }
+            })
+        }
+    }
+
+    return (
+        <div className="cart-items">
+            <a href="#" className="main-btn">
+                <i className="lni lni-cart"></i>
+                <span className="total-items">{items}</span>
+            </a>
+            <div className="shopping-item">
+                <div className="dropdown-cart-header">
+                    <span>{items} Items</span>
+                    <Link href="/cart">View Cart</Link>
                 </div>
-                <div className="button">
-                    <a href="checkout.html" className="btn animate">Checkout</a>
+                <ul className="shopping-list">
+                    {products && products.map((goods) => {
+                        console.log(goods.key);
+
+                        return (
+                            <li key={goods.key}>
+                                <span className="remove" title="Remove this item" onClick={() => removeFromCart(goods.key)}>
+                                    <i className="lni lni-close"></i>
+                                </span>
+                                <div className="cart-img-head">
+                                    <div className="cart-img">
+                                        <Image
+                                            src={goods.product.node.image.sourceUrl}
+                                            alt="#"
+                                            layout="intrinsic"
+                                            width={60}
+                                            height={60}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="content">
+                                    <h4><a href="product-details.html">
+                                        {goods.product.node.name}</a></h4>
+                                    <p className="quantity">{goods.quantity}x - <span className="amount">{goods.total}</span></p>
+                                </div>
+                            </li>
+                        )
+                    })}
+
+                </ul>
+                <div className="bottom">
+                    <div className="total">
+                        <span>Total</span>
+                        <span className="total-amount">{totalPrice}</span>
+                    </div>
+                    <div className="button">
+                        <Link href="/checkout" className="btn animate">Checkout</Link>
+                    </div>
                 </div>
             </div>
         </div>

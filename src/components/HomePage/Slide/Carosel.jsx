@@ -1,17 +1,20 @@
-import React from 'react'
+import Link from "next/link";
 
-const Carosel = () => {
+const Carosel = (props) => {
+    const { description, name, price, slug, image } = props
     return (
-        <div className="single-slider tns-item tns-slide-cloned" style={{ backgroundImage: "url(images/hero/slider-bg1.jpg)" }}>
+        <div className="single-slider tns-item tns-slide-cloned" style={{ backgroundImage: `url(${image.sourceUrl})` }}>
             <div className="content">
                 <h2><span>No restocking fee ($35 savings)</span>
-                    M75 Sport Watch
+                    {name}
                 </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
-                <h3><span>Now Only</span> $320.99</h3>
+                <div dangerouslySetInnerHTML={{ __html: description }} />
+
+                <h3><span>Now Only</span> {price}</h3>
                 <div className="button">
-                    <a href="product-grids.html" className="btn">Shop Now</a>
+                    <Link href={`/shop/${slug}`} className="btn" passHref>
+                        <div className="btn btn-primary">Shop Now</div>
+                    </Link>
                 </div>
             </div>
         </div>
