@@ -1,10 +1,10 @@
-
+import FrontEnd from "../../layout/FrontEnd"
 
 const Category = () => {
     return (
-        <div>
+        <FrontEnd>
 
-        </div>
+        </FrontEnd>
     )
 }
 

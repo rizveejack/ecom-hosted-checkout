@@ -21,10 +21,10 @@ const NavBar = () => {
                         </ul>
                     </li>
                     <li className="nav-item">
-                        <a aria-label="Toggle navigation">Shop</a>
+                        <Link href="/shop" aria-label="Toggle navigation">Shop</Link>
                     </li>
                     <li className="nav-item">
-                        <a aria-label="Toggle navigation">Blog</a>
+                        <Link href="/category" aria-label="Toggle navigation">Category</Link>
                     </li>
                     <li className="nav-item">
                         <a href="contact.html" aria-label="Toggle navigation">Contact Us</a>

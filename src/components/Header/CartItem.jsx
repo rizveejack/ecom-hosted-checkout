@@ -39,8 +39,6 @@ const CartItem = () => {
                 </div>
                 <ul className="shopping-list">
                     {products && products.map((goods) => {
-                        console.log(goods.key);
-
                         return (
                             <li key={goods.key}>
                                 <span className="remove" title="Remove this item" onClick={() => removeFromCart(goods.key)}>

@@ -15,6 +15,8 @@ const ProductCart = (props) => {
                         height={400}
                         width={400}
                         layout="responsive"
+                        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc/Op/PQAHkQL9VgAfCwAAAABJRU5ErkJggg=="
+                        placeholder="blur"
                     />
                     <span className="sale-tag">-25%</span>
                     <div className="button">

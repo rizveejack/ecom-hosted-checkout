@@ -4,6 +4,7 @@ const PRODUCT_CATEGORIES = gql` query PRODUCT_CATEGORIES_SLUGS {
     nodes {
       id
       slug
+      description
     }
   }
 }`
