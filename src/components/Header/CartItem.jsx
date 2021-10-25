@@ -41,7 +41,7 @@ const CartItem = () => {
                     {products && products.map((goods) => {
                         return (
                             <li key={goods.key}>
-                                <span className="remove" title="Remove this item" onClick={() => removeFromCart(goods.key)}>
+                                <span className="remove bg-danger text-white" title="Remove this item" onClick={() => removeFromCart(goods.key)}>
                                     <i className="lni lni-close"></i>
                                 </span>
                                 <div className="cart-img-head">
