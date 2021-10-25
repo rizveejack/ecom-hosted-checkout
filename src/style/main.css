@@ -4803,6 +4803,7 @@ top: 2px;
   display: inline-block;
   margin-right: 12px;
   color: #fff;
+  vertical-align: top;
 }
 
 @media (max-width: 767px) {

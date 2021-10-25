@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import AddToCart from "./AddToCart";
 
 const ProductCart = (props) => {
-    const { name, price, id, image, averageRating } = props
+    const { name, price, slug, image, averageRating } = props
 
 
     return (
@@ -10,7 +11,7 @@ const ProductCart = (props) => {
             <div className="single-product">
                 <div className="product-image">
                     <Image
-                        src={image.sourceUrl}
+                        src={image?.sourceUrl ?? "/images/products/product-1.jpg"}
                         alt="#"
                         height={400}
                         width={400}
@@ -29,7 +30,7 @@ const ProductCart = (props) => {
                 <div className="product-info">
                     <span className="category">Laptop</span>
                     <h4 className="title">
-                        <a href="product-grids.html">{name}</a>
+                        <Link href={`/shop/${slug}`}>{name}</Link>
                     </h4>
                     <ul className="review">
                         <li><i className="lni lni-star-filled"></i></li>
