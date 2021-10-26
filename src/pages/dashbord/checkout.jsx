@@ -1,10 +1,10 @@
 import Subscribe from "../../components/Auth/Subscribe"
 import FrontEnd from "../../layout/FrontEnd"
 
-const Dashbord = () => {
+const Checkout = () => {
     return (
-        <FrontEnd>
-            <Subscribe>
+        <Subscribe>
+            <FrontEnd>
                 <section className="section" style={{ marginTop: "12px" }}>
                     <div className="container">
                         <div className="section-title">
@@ -13,9 +13,10 @@ const Dashbord = () => {
                         </div>
                     </div>
                 </section>
-            </Subscribe>
-        </FrontEnd>
+            </FrontEnd>
+        </Subscribe>
+
     )
 }
 
-export default Dashbord
+export default Checkout

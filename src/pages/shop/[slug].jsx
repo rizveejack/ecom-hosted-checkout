@@ -1,13 +1,38 @@
+import Image from "next/image";
 import client from "../../apollo/client";
 import PRODUCT_SLUGS from "../../apollo/query/ALL_PRODUCT_SLUGS";
 import PRODUCT_BY_SLUG from "../../apollo/query/PRODUCT_BY_SLUG";
+import AddToCart from "../../components/Product/AddToCart";
 import FrontEnd from "../../layout/FrontEnd";
 
-const SingleProduct = (props) => {
-    console.log(props);
+const SingleProduct = ({ product }) => {
+
     return (
         <FrontEnd>
-            This is Single product
+            <section className="section" style={{ marginTop: "12px" }}>
+                <div className="container">
+                    <div className="text-center">
+                        <Image
+                            className="rounded mx-auto d-block"
+                            src={product?.image?.sourceUrl ?? "/images/placeholder.png"}
+                            alt="#"
+                            height={400}
+                            width={400}
+                            layout="intrinsic"
+                            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc/Op/PQAHkQL9VgAfCwAAAABJRU5ErkJggg=="
+                            placeholder="blur"
+                        />
+                    </div>
+                    <div className="section-title">
+                        <h2>{product?.name}</h2>
+                        <div dangerouslySetInnerHTML={{ __html: product?.description }} />
+                        <h3>{product?.price}</h3>
+                    </div>
+                    <div className="text-center">
+                        <AddToCart {...product} />
+                    </div>
+                </div>
+            </section>
         </FrontEnd>
     )
 }

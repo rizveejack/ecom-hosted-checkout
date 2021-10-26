@@ -1,11 +1,16 @@
-import React from 'react'
+import CategoryComponent from "../../components/CategoryComponent"
+import FrontEnd from "../../layout/FrontEnd"
+
+
 
 const CategoryProduct = () => {
     return (
-        <div>
-
-        </div>
+        <FrontEnd>
+            <CategoryComponent />
+        </FrontEnd>
     )
 }
+
+
 
 export default CategoryProduct
