@@ -7,7 +7,7 @@ const AddToCart = (props) => {
     const [AddCart, { loading, error, data }] = useMutation(ADD_TO_CART, {
         refetchQueries: [VIEWER]
     })
-
+    console.log("jadu", props.databaseId);
     const AddMyCart = () => {
         if (!loading && !error) {
             AddCart({
@@ -17,7 +17,7 @@ const AddToCart = (props) => {
     }
 
     return (
-        <div className="btn" onClick={AddMyCart}>
+        <div className="btn btn-primary" onClick={AddMyCart}>
             <i className="lni lni-cart"></i>Add to Cart{loading && "..."}
         </div>
     )

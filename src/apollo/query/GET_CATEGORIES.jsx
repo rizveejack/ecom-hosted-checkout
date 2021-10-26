@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
-const GET_CATEGORIES = gql`query {
-	productCategories(first: 2) {
+const GET_CATEGORIES = gql`query($first: Int = 4) {
+	productCategories(first: $first) {
 		nodes {
 			id
 			name

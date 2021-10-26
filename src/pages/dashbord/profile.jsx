@@ -1,7 +1,7 @@
 import Subscribe from "../../components/Auth/Subscribe"
 import FrontEnd from "../../layout/FrontEnd"
 
-const Dashbord = () => {
+const Profile = () => {
     return (
         <FrontEnd>
             <Subscribe>
@@ -18,4 +18,4 @@ const Dashbord = () => {
     )
 }
 
-export default Dashbord
+export default Profile
