@@ -11,7 +11,7 @@ const ProductCart = (props) => {
             <div className="single-product">
                 <div className="product-image">
                     <Image
-                        src={image?.sourceUrl ?? "/images/products/product-1.jpg"}
+                        src={image?.sourceUrl ?? "/images/placeholder.png"}
                         alt="#"
                         height={400}
                         width={400}

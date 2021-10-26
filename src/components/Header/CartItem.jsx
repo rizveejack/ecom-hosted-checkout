@@ -47,7 +47,7 @@ const CartItem = () => {
                                 <div className="cart-img-head">
                                     <div className="cart-img">
                                         <Image
-                                            src={goods?.product?.node?.image?.sourceUrl ?? "/images/products/product-1.jpg"}
+                                            src={goods?.product?.node?.image?.sourceUrl ?? "/images/placeholder.jpg"}
                                             alt="#"
                                             layout="intrinsic"
                                             width={60}
