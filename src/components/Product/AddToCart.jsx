@@ -7,11 +7,10 @@ const AddToCart = (props) => {
     const [AddCart, { loading, error, data }] = useMutation(ADD_TO_CART, {
         refetchQueries: [VIEWER]
     })
-    console.log("jadu", props.databaseId);
     const AddMyCart = () => {
         if (!loading && !error) {
             AddCart({
-                variables: { productId: props.databaseId }
+                variables: { productId: props.productId }
             })
         }
     }
