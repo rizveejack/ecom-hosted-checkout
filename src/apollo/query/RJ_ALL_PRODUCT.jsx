@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-const RJ_ALL_PRODUCT = gql`query ALL_PRODUCT($after: String = "", $first: Int = 4) {
+const RJ_ALL_PRODUCT = gql`query ALL_PRODUCT($after: String = "", $first: Int = 8) {
     products(first: $first, after: $after) {
       edges {
         node {

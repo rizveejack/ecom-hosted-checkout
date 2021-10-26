@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
-import PRODUCTS_AND_CATEGORIES from "../../../apollo/query/PRODUCTS_AND_CATEGORIES";
+import RJ_ALL_PRODUCT from "../../../apollo/query/RJ_ALL_PRODUCT";
 import ProductCart from '../../Product/ProductCart';
 
 const Tranding = () => {
-    const { loading, error, data } = useQuery(PRODUCTS_AND_CATEGORIES)
-    const goods = data?.products?.nodes ?? []
-    const tranding_product = goods.filter((product) => product.type === "SIMPLE")
+    const { loading, error, data } = useQuery(RJ_ALL_PRODUCT)
+    const goods = data?.products?.edges ?? []
+    console.log(goods);
 
 
     return (
@@ -21,10 +21,8 @@ const Tranding = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {tranding_product.map((product, index) => {
-                        if (index < 8) {
-                            return <ProductCart key={product.id} {...product} />
-                        }
+                    {goods.map((product) => {
+                        return <ProductCart key={product.node.id} {...product.node} />
 
                     })}
                 </div>

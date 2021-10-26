@@ -5,6 +5,8 @@ const SearchComponent = () => {
     const data = router.query
     const searchValue = JSON.parse(router.query.data)
 
+    console.log("search Data", searchValue);
+
     return (
         <section className="section" style={{ marginTop: "12px" }}>
             <div className="container">
