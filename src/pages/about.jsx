@@ -1,5 +1,5 @@
-import Subscribe from "../components/Auth/Subscribe"
-import FrontEnd from "../layout/FrontEnd"
+import Subscribe from "../components/Auth/Subscribe";
+import FrontEnd from "../layout/FrontEnd";
 const About = () => {
     return (
         <Subscribe>
