@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 const SearchComponent = () => {
     const router = useRouter()
     const data = router.query
-    const searchValue = JSON.parse(router.query.data)
+    const searchValue = data
 
     console.log("search Data", searchValue);
 

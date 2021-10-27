@@ -5,8 +5,8 @@ const Logo = () => {
     return (
 
         <>
-            <Link className="navbar-brand" href="/" passHref>
-                <div>
+            <Link href="/" passHref>
+                <div className="navbar-brand cti">
                     <Image
                         src="/images/logo/logo.svg"
                         alt="Logo"

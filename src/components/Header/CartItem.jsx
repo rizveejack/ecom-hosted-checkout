@@ -28,10 +28,14 @@ const CartItem = () => {
 
     return (
         <div className="cart-items">
-            <a href="#" className="main-btn">
-                <i className="lni lni-cart"></i>
-                <span className="total-items">{items}</span>
-            </a>
+            <Link href="/cart" passHref>
+                <div className="main-btn cti">
+                    <i className="lni lni-cart"></i>
+                    <span className="total-items">
+                        {items}
+                    </span>
+                </div>
+            </Link>
             <div className="shopping-item">
                 <div className="dropdown-cart-header">
                     <span>{items} Items</span>
