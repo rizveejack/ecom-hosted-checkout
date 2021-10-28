@@ -4,7 +4,7 @@ import className from "classname"
 const Banner = (props) => {
 
     return (
-        <div className={className("hero-small-banner", props.bclass)} style={{ backgroundImage: "url('images/hero/slider-bnr.jpg')" }}>
+        <div className={className("hero-small-banner", props.bclass)}>
             <div className="content">
                 <h2>Weekly Sale!</h2>
                 <p>Saving up to 50% off all online store items this week.</p>

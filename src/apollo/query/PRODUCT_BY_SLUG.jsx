@@ -2,6 +2,7 @@ import { gql } from "@apollo/client"
 const PRODUCT_BY_SLUG = gql` query Product($slug: ID!) {
 	product(id: $slug, idType: SLUG) {
 	  id
+	  type
 	  databaseId
 	  productId: databaseId
 	  averageRating

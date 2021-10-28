@@ -3,7 +3,6 @@ import useRedox from "../../hook/useRedox";
 
 const LoginButton = () => {
     const { gstate } = useRedox()
-    console.log(gstate);
 
     if (gstate.isLogedin === false) {
         return (
