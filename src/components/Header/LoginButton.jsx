@@ -1,21 +1,38 @@
-import Link from "next/link"
-import useRedox from "../../hook/useRedox"
+import Link from "next/link";
+import useRedox from "../../hook/useRedox";
 
 const LoginButton = () => {
     const { gstate } = useRedox()
-    const link = gstate.isLogedin ? "/logout" : "/login"
+    console.log(gstate);
+
+    if (gstate.isLogedin === false) {
+        return (
+            <ul className="user-login">
+                <li>
+                    <Link href="/login">Sign In</Link>
+                </li>
+                <li>
+                    <Link href="#">Register</Link>
+                </li>
+            </ul>
+        )
+    }
 
     return (
-        <div className="wishlist">
-            <Link href={link} passHref>
-                <a>
-                    <i className="lni lni-user">
-                    </i>
-                    {gstate.isLogedin && <span className="total-items bg-success"></span>}
-                </a>
-
-            </Link>
-        </div>
+        <>
+            <div className="user">
+                <i className="lni lni-user"></i>
+                {gstate.isLogedin && gstate?.data?.viewer?.username}
+            </div>
+            <ul className="user-login">
+                <li>
+                    <Link href="/dashbord">Dashbord</Link>
+                </li>
+                <li>
+                    <Link href="/logout">Logout</Link>
+                </li>
+            </ul>
+        </>
     )
 }
 

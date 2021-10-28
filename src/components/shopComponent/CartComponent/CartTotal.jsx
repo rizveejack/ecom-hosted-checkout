@@ -1,7 +1,7 @@
-import React from 'react';
+import Link from "next/link";
 
 const CartTotal = (props) => {
-    console.log(props);
+
     const { shippingTotal, subtotal, total } = props
     return (
         <div className="col-lg-4 col-md-6 col-12">
@@ -13,8 +13,18 @@ const CartTotal = (props) => {
                     <li className="last">You Pay<span>{total}</span></li>
                 </ul>
                 <div className="button">
-                    <a href="checkout.html" className="btn">Checkout</a>
-                    <a href="product-grids.html" className="btn btn-alt">Continue shopping</a>
+                    <Link href="/dashbord/checkout" passHref>
+                        <button className="btn">
+                            Checkout
+                        </button>
+
+                    </Link>
+                    <Link href="/shop" passHref>
+                        <button className="btn btn-alt">
+                            Continue shopping
+                        </button>
+
+                    </Link>
                 </div>
             </div>
         </div>

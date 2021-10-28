@@ -14,8 +14,9 @@ const CategoryComponent = () => {
         }
     })
     const goods = data?.productCategory?.products?.edges ?? []
-    const tranding_product = goods
-    console.log(goods);
+    const catName = data?.productCategory?.name
+
+
 
     const loadMore = () => {
         if (data?.products?.pageInfo?.endCursor) {
@@ -55,7 +56,7 @@ const CategoryComponent = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="section-title">
-                                <h2>Trending Product</h2>
+                                <h2>{catName} Product</h2>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                                     suffered alteration in some form.</p>
                             </div>
@@ -64,14 +65,14 @@ const CategoryComponent = () => {
 
                     <InfiniteScroll
                         style={{ overflowX: "hidden" }}
-                        dataLength={tranding_product.length}
+                        dataLength={goods.length}
                         next={loadMore}
                         hasMore={data?.products?.pageInfo?.hasNextPage}
                         loader={<p>Loading...</p>}
                         endMessage={<p>✅ All posts loaded.</p>}
                     >
                         <div className="row">
-                            {tranding_product.map((product) => {
+                            {goods.map((product) => {
                                 return (
 
                                     <ProductCart key={product.node.id} {...product.node} />

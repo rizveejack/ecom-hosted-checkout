@@ -1715,7 +1715,7 @@ ol {
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
 }
 
 .header .navbar-cart .wishlist {
@@ -2954,7 +2954,7 @@ ol {
 }
 
 .hero-area .hero-slider .single-slider .content {
-  padding: 20px 365px 20px 50px;
+  padding: 20px 20px 20px 50px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -3353,7 +3353,7 @@ ol {
 }
 
 .single-product .product-image .button .btn {
-  padding: 12px 20px;
+  padding: 12px 12px;
   font-size: 13px;
   font-weight: 600;
   width: 140px;

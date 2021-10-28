@@ -1,10 +1,10 @@
 import useRedox from "../../hook/useRedox";
 import CartItem from "./CartItem";
 import HotLine from "./HotLine";
-import LoginButton from "./LoginButton";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import Search from "./Search";
+import TopBar from "./TopBar";
 import Wishlist from "./Wishlist";
 
 const Header = () => {
@@ -12,6 +12,7 @@ const Header = () => {
 
     return (
         <div className="header navbar-area">
+            <TopBar />
             <div className="header-middle">
                 <div className="container">
                     <div className="row align-items-center">
@@ -25,7 +26,6 @@ const Header = () => {
                             <div className="middle-right-area">
                                 <HotLine />
                                 <div className="navbar-cart">
-                                    <LoginButton />
                                     <Wishlist />
                                     <CartItem />
                                 </div>

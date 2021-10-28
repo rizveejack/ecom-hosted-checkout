@@ -8,7 +8,7 @@ const About = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="section-title">
-                                <h2 className="wow fadeInUp" data-wow-delay=".4s">Our Core Team</h2>
+                                <h2 className="wow fadeInUp" data-wow-delay=".4s">Our ecomTeam Team</h2>
                                 <p className="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
                                     Ipsum available, but the majority have suffered alteration in some form.</p>
                             </div>

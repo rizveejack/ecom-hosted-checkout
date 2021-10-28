@@ -5,8 +5,6 @@ import ProductCart from '../../Product/ProductCart';
 const Tranding = () => {
     const { loading, error, data } = useQuery(RJ_ALL_PRODUCT)
     const goods = data?.products?.edges ?? []
-    console.log(goods);
-
 
     return (
         <section className="trending-product section" style={{ marginTop: "12px" }}>

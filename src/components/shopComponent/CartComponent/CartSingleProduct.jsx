@@ -63,7 +63,9 @@ const CartSingleProduct = (props) => {
                 </div>
                 <div className="col-lg-2 col-md-2 col-12">
                     <div className="count-input">
+
                         <input
+                            className="form-control p-2"
                             type="number"
                             value={Quantity}
                             onChange={(e) => changeQuantity(e)}
