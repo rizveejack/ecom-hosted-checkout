@@ -1,14 +1,25 @@
-import React from 'react'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
+import useRedox from '../../../hook/useRedox'
 import CreaditCard from './CreaditCard'
 import ShipingAddress from './ShipingAddress'
 
 
 
 const CheckoutComponent = () => {
+    const { gstate } = useRedox()
+    const router = useRouter()
     const { register, handleSubmit, formState: { errors } } = useForm()
     const getShipingData = (data) => {
         console.log(data);
+    }
+
+    const iscartEmpty = Boolean(gstate?.data?.cart?.contents?.nodes.length) ?? false
+
+    if (iscartEmpty === false) {
+        router.push({
+            pathname: "/shop"
+        })
     }
 
     return (

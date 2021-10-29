@@ -25,6 +25,7 @@ const CUSTOMER_INFO = gql`query CUSTOMER_INFO($id: ID!) {
         }
       }
       shipping {
+        phone
         address1
         city
         country

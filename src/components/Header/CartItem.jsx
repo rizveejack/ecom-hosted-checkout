@@ -76,7 +76,7 @@ const CartItem = () => {
                         <span className="total-amount">{totalPrice}</span>
                     </div>
                     <div className="button">
-                        <Link href="/checkout" className="btn animate">Checkout</Link>
+                        <Link href="/dashbord/checkout" className="btn animate">Checkout</Link>
                     </div>
                 </div>
             </div>
