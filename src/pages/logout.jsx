@@ -1,5 +1,4 @@
 import { useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import LOGOUT from "../apollo/mutation/LOGOUT";
 import VIEWER from "../apollo/query/VIEWER";
@@ -11,12 +10,11 @@ const Logout = () => {
         refetchQueries: [VIEWER]
     })
     const { gstate } = useRedox()
-    const router = useRouter()
+
 
     useEffect(() => {
         if (gstate.isLogedin && !gstate.isloading) {
             logOut()
-            router.push("/login")
         }
     }, [gstate.isLogedin, gstate.isloading])
 

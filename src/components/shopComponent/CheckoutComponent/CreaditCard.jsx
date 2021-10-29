@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CreaditCard = () => {
+const CreaditCard = ({ register }) => {
     return (
         <li>
             <h6 className="title collapsed" >Payment Info</h6>
@@ -11,13 +11,17 @@ const CreaditCard = () => {
                             <div className="single-form form-default">
                                 <label>Cardholder Name</label>
                                 <div className="form-input form">
-                                    <input type="text" placeholder="Cardholder Name" />
+                                    <input
+                                        {...register("chname", { required: true })}
+                                        type="text" placeholder="Cardholder Name" />
                                 </div>
                             </div>
                             <div className="single-form form-default">
                                 <label>Card Number</label>
                                 <div className="form-input form">
-                                    <input id="credit-input" type="text" placeholder="0000 0000 0000 0000" />
+                                    <input
+                                        {...register("crdnumber", { required: true })}
+                                        type="text" placeholder="0000 0000 0000 0000" />
                                     <img src="/images/payment/card.png" alt="card" />
                                 </div>
                             </div>
@@ -26,23 +30,32 @@ const CreaditCard = () => {
                                     <label>Expiration</label>
                                     <div className="expiration d-flex">
                                         <div className="form-input form">
-                                            <input type="text" placeholder="MM" />
+                                            <input
+                                                {...register("month", { required: true })}
+                                                type="text" placeholder="MM" />
                                         </div>
                                         <div className="form-input form">
-                                            <input type="text" placeholder="YYYY" />
+                                            <input
+                                                {...register("year", { required: true })}
+                                                type="text" placeholder="YYYY" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="single-form form-default">
                                     <label>CVC/CVV <span><i className="mdi mdi-alert-circle"></i></span></label>
                                     <div className="form-input form">
-                                        <input type="text" placeholder="***" />
+                                        <input
+                                            {...register("CCV", { required: true })}
+                                            type="text" placeholder="***" />
                                     </div>
                                 </div>
                             </div>
-                            <div className="single-form form-default button">
-                                <button className="btn">pay now</button>
-                            </div>
+                        </div>
+
+                        <div className="single-form form-default button">
+                            <button
+                                type="submit"
+                                className="btn">pay now</button>
                         </div>
                     </div>
                 </div>

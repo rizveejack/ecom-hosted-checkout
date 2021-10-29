@@ -21,13 +21,15 @@ const Carosel = (props) => {
                         </div>
                     </div>
                     <div className="col-6">
-                        <Image
-                            src={image.sourceUrl}
-                            alt="slider"
-                            width={400}
-                            height={400}
-                            layout="responsive"
-                        />
+                        <div className="img-thumbnail">
+                            <Image
+                                src={image.sourceUrl}
+                                alt="slider"
+                                width={400}
+                                height={400}
+                                layout="responsive"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

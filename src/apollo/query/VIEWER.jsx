@@ -2,6 +2,7 @@ import { gql } from "@apollo/client"
 
 const VIEWER = gql`query VIEWER {
   viewer {
+    id
     email
     username
   }

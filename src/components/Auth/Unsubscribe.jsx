@@ -4,11 +4,14 @@ import useRedox from "../../hook/useRedox";
 
 const Unsubscribe = ({ children }) => {
     const { gstate } = useRedox()
-    const go = useRouter()
+    const router = useRouter()
+
 
     useEffect(() => {
         if (gstate.isLogedin && !gstate.loading) {
-            go.push('/');
+            router.push({
+                pathname: router.query.next ?? "/dashbord",
+            });
         }
     }, [gstate.loading, gstate.isLogedin])
 

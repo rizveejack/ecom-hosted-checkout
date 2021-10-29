@@ -19,10 +19,12 @@ const LoginButton = () => {
 
     return (
         <>
-            <div className="user">
-                <i className="lni lni-user"></i>
-                {gstate.isLogedin && gstate?.data?.viewer?.username}
-            </div>
+            <Link href="/dashbord/profile" passHref>
+                <div className="user">
+                    <i className="lni lni-user"></i>
+                    {gstate.isLogedin && gstate?.data?.viewer?.username}
+                </div>
+            </Link>
             <ul className="user-login">
                 <li>
                     <Link href="/dashbord">Dashbord</Link>
