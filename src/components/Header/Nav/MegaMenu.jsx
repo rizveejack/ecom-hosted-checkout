@@ -23,11 +23,11 @@ const MegaMenu = () => {
                         </li>
                     )
                 })}
-                <li><a href="#">Electronics <i className="lni lni-chevron-right"></i></a>
+                {/* <li><a href="#">Electronics <i className="lni lni-chevron-right"></i></a>
                     <ul className="inner-sub-category">
                         <li><a href="#">Digital Cameras</a></li>
                     </ul>
-                </li>
+                </li> */}
 
             </ul>
         </div>

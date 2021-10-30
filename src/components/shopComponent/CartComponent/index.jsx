@@ -20,7 +20,7 @@ const CartComponent = () => {
                     <CartHeader />
                     {cartItem.map((product) => {
                         return (
-                            <div key={product.id} >
+                            <div key={product.key} >
                                 <CartSingleProduct {...product} productKey={product.key} />
                             </div>
 

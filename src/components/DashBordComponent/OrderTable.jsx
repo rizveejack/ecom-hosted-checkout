@@ -1,17 +1,18 @@
 import { useQuery } from "@apollo/client";
 import Moment from "moment";
-import CUSTOMER_INFO from "../../apollo/query/CUSTOMER_INFO";
+import ORDER_INFO from "../../apollo/query/ORDER_INFO";
 import useRedox from "../../hook/useRedox";
 
 const OrderTable = () => {
     const { gstate } = useRedox()
     const CustomerId = gstate?.data?.viewer?.id
-    const { loading, error, data } = useQuery(CUSTOMER_INFO, {
+    const { loading, error, data } = useQuery(ORDER_INFO, {
         variables: {
             id: CustomerId
         }
     })
     const orders = data?.customer?.orders?.edges ?? []
+
 
 
     return (

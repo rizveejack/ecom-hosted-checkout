@@ -1,19 +1,25 @@
-import Image from "next/image"
-const ProfileCart = () => {
+import Image from "next/image";
+const ProfileCart = ({ viewer }) => {
+
     return (
-        <div className="checkout-sidebar">
+        <div className="checkout-sidebar text-center">
             <div className="card" style={{ width: "100%" }}>
-                <Image
-                    src="/images/placeholder.png"
-                    className="card-img-top"
-                    alt="#"
-                    width={200}
-                    height={200}
-                    layout="intrinsic"
-                />
+                <div className="text-center mt-3">
+                    <span className="rounded">
+                        <Image
+                            src={viewer.avatar.url}
+                            className="card-img-top"
+                            alt="#"
+                            width={100}
+                            height={100}
+                            layout="intrinsic"
+                        />
+                    </span>
+                </div>
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                    <h4 className="card-title">{viewer.firstName} {viewer.lastName}</h4>
+                    <h6>{viewer.email}</h6>
+                    <p className="card-text">{viewer.description}</p>
 
                 </div>
             </div>

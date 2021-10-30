@@ -3,8 +3,14 @@ import { gql } from "@apollo/client"
 const VIEWER = gql`query VIEWER {
   viewer {
     id
+    avatar(size: 500) {
+      url
+    }
     email
+    description
+    firstName
     username
+    lastName
   }
   cart {
     contents {
