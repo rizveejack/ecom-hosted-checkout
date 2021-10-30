@@ -43,10 +43,10 @@ const CartSingleProduct = (props) => {
                 <div className="col-lg-1 col-md-1 col-12">
                     <a href="product-details.html">
                         <Image
-                            width={60}
-                            height={60}
+                            width={80}
+                            height={80}
                             layout="fixed"
-                            src="/images/placeholder.png"
+                            src={product?.node?.image?.sourceUrl ?? "/images/placeholder.jpg"}
                             alt="#" />
                     </a>
                 </div>
@@ -57,7 +57,7 @@ const CartSingleProduct = (props) => {
                         </a>
                     </h5>
                     <p className="product-des">
-                        <span><em>Type:</em> Mirrorless</span>
+                        <span><em>Size:</em> Small</span>
                         <span><em>Color:</em> Black</span>
                     </p>
                 </div>
