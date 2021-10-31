@@ -1,0 +1,3 @@
+NEXT_PUBLIC_WORDPRESS_URL = "http://wordpress.rj"
+NEXT_STRIPE_PUB = "pk_test_W4yDriZJyiLJ4VydaP1qavoF"
+NEXT_STRIPE_PVT = "sk_test_NEAZrMxxufjmNKD5gqfq4eZZ00tiZsrlQG"
