@@ -12,30 +12,32 @@ const PaymentForm = () => {
         e.preventDefault()
         try {
             const source = await handleStripe()
-            await checkout({
-                variables: {
-                    input: {
-                        clientMutationId: '12345',
-                        paymentMethod: 'stripe', // <-- Hey WooCommerce, we'll be using Stripe
-                        shippingMethod: 'Flat rate',
-                        billing: { // <-- Hard-coding this for simplicity
-                            firstName: 'George',
-                            lastName: 'Costanza',
-                            address1: `129 West 81st Street, Apartment 5A`,
-                            city: `New York`,
-                            state: `NY`,
-                            postcode: `12345`,
-                            email: `george@vandelayindustries.com`,
-                        },
-                        metaData: [
-                            {
-                                key: `_stripe_source_id`,
-                                value: source.id,
+            if (source) {
+                await checkout({
+                    variables: {
+                        input: {
+                            clientMutationId: '12345',
+                            paymentMethod: 'stripe', // <-- Hey WooCommerce, we'll be using Stripe
+                            shippingMethod: 'Flat rate',
+                            billing: { // <-- Hard-coding this for simplicity
+                                firstName: 'George',
+                                lastName: 'Costanza',
+                                address1: `129 West 81st Street, Apartment 5A`,
+                                city: `New York`,
+                                state: `NY`,
+                                postcode: `12345`,
+                                email: `george@vandelayindustries.com`,
                             },
-                        ],
+                            metaData: [
+                                {
+                                    key: `_stripe_source_id`,
+                                    value: source.id,
+                                },
+                            ],
+                        },
                     },
-                },
-            })
+                })
+            }
         } catch (error) {
             console.error(error)
         }
