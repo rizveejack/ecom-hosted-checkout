@@ -1,5 +1,5 @@
-import { Elements } from "@stripe/react-stripe-js"
-import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import useRedox from '../../../hook/useRedox'
@@ -8,7 +8,9 @@ import ProductCart from './ProductCart'
 import ShipingAddress from './ShipingAddress'
 
 
-const stripePromise = loadStripe(`${process.env.NEXT_STRIPE_PUB}`)
+
+const stripeSession = loadStripe("pk_test_51DicdRHgNP4jLX4FOSbrs1bcOqiPRlnhXwdzKblsNVjYMRvynTbRnq0rLkur0vByxwOiHR7FKWTGOh0htIF7yBws009MURZU5C")
+
 
 const CheckoutComponent = () => {
     const { gstate } = useRedox()
@@ -27,7 +29,7 @@ const CheckoutComponent = () => {
     }
 
     return (
-        <Elements stripe={stripePromise}>
+        <Elements stripe={stripeSession}>
             <section className="section">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -36,7 +38,6 @@ const CheckoutComponent = () => {
                         </div>
                         <div className="col-md-6 order-md-2 mb-4">
                             <ProductCart />
-                            <h4 className="mb-3">Payment</h4>
                             <PaymentOption />
                         </div>
 

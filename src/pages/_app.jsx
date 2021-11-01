@@ -8,7 +8,6 @@ import "../style/LineIcons.3.0.css"
 import "../style/main.css"
 
 
-
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
