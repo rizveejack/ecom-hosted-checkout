@@ -3531,6 +3531,31 @@ ol {
   margin-top: 15px;
 }
 
+/*======================================
+    Call Action CSS
+========================================*/
+.call-action {
+  background-color: #0167F3;
+}
+
+.call-action .content {
+  text-align: center;
+}
+
+.call-action .content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 42px;
+  color: #fff;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.call-action .content .button .btn {
+  background-color: #fff;
+  color: #081828;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .single-banner .content p {
     margin-top: 10px;

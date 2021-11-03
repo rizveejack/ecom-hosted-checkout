@@ -12,7 +12,7 @@ const CallToAction = (props) => {
                                     {props.title}</h2>
                                 <p className="wow fadeInUp" data-wow-delay=".6s"> {props.message}</p>
                                 <div className="button wow fadeInUp" data-wow-delay=".8s">
-                                    <a href={props.link} className="btn">{props.btnText}</a>
+                                    <a href={props.link} className="btn btn-secondary">{props.btnText}</a>
                                 </div>
                             </div>
                         </div>

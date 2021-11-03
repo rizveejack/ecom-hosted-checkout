@@ -7,6 +7,9 @@ const GET_CATEGORIES = gql`query GET_CATEGORIES {
 			name
 			slug
 			count
+			image {
+			  sourceUrl
+			}
 			parentId
 			children {
 			  edges {
@@ -15,12 +18,15 @@ const GET_CATEGORIES = gql`query GET_CATEGORIES {
 				  name
 				  slug
 				  count
+				  image {
+					sourceUrl
+				  }
 				}
 			  }
 			}
 		  }
 		}
-	}
+	  }
   }`
 
 export default GET_CATEGORIES

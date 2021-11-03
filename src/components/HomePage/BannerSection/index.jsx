@@ -5,14 +5,14 @@ import SingleBanner from './SingleBanner'
 
 const BannerSection = () => {
     const { loading, error, data } = useQuery(GET_CATEGORIES)
-    const category = data?.productCategories?.nodes ?? []
+    const category = data?.productCategories?.edges ?? []
 
     return (
         <section className="banner section">
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center">
                     {category.map((cat) => {
-                        return <SingleBanner {...cat} key={cat.id} />
+                        return <SingleBanner {...cat.node} key={cat.node.id} />
                     })}
                 </div>
             </div>
