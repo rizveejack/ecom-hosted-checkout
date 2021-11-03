@@ -69,7 +69,7 @@ const CategoryComponent = () => {
                         next={loadMore}
                         hasMore={data?.products?.pageInfo?.hasNextPage}
                         loader={<p>Loading...</p>}
-                        endMessage={<p>✅ All posts loaded.</p>}
+                        endMessage={<p className="text-center mt-5">✅ All posts loaded.</p>}
                     >
                         <div className="row">
                             {goods.map((product) => {

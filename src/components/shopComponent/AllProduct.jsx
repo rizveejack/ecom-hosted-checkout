@@ -4,17 +4,17 @@ import RJ_ALL_PRODUCT from "../../apollo/query/RJ_ALL_PRODUCT";
 import ProductCart from "../Product/ProductCart";
 
 const AllProduct = () => {
-    const { loading, error, data, fetchMore } = useQuery(RJ_ALL_PRODUCT, {
-        notifyOnNetworkStatusChange: true
+    const { data, fetchMore } = useQuery(RJ_ALL_PRODUCT, {
+        notifyOnNetworkStatusChange: true,
     })
     const goods = data?.products?.edges ?? []
-    const tranding_product = goods
+    console.log(goods);
 
     const loadMore = () => {
         if (data?.products?.pageInfo?.endCursor) {
             fetchMore({
                 variables: {
-
+                    first: 4,
                     after: data?.products?.pageInfo?.endCursor
 
                 }
@@ -38,14 +38,14 @@ const AllProduct = () => {
 
                     <InfiniteScroll
                         style={{ overflowX: "hidden" }}
-                        dataLength={tranding_product.length}
+                        dataLength={goods.length}
                         next={loadMore}
                         hasMore={data?.products?.pageInfo?.hasNextPage}
                         loader={<p>Loading...</p>}
-                        endMessage={<p>✅ All posts loaded.</p>}
+                        endMessage={<p className="text-center mt-5">✅ All posts loaded.</p>}
                     >
                         <div className="row">
-                            {tranding_product.map((product) => {
+                            {goods.map((product) => {
                                 return (
 
                                     <ProductCart key={product.node.id} {...product.node} />

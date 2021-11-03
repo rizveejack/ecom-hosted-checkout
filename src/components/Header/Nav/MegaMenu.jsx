@@ -18,7 +18,6 @@ const MegaMenu = () => {
             <span className="cat-button"><i className="lni lni-menu"></i>All Categories</span>
             <ul className="sub-category">
                 {motherCat && motherCat.map((cat) => {
-                    console.log(cat);
                     return (
                         <li key={cat.node.id}>
                             <Link href={`/category/${cat.node.slug}`}>
