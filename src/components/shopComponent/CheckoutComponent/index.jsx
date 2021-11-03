@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client"
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
+import Link from "next/link"
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import CHECKOUT from "../../../apollo/mutation/CHECKOUT"
@@ -12,14 +13,8 @@ import ShipingAddress from './ShipingAddress'
 const CheckoutComponent = () => {
     const { gstate } = useRedox()
     const router = useRouter()
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit } = useForm()
     const iscartEmpty = Boolean(gstate?.data?.cart?.contents?.nodes.length) ?? false
-
-    if (iscartEmpty === false) {
-        router.push({
-            pathname: "/shop"
-        })
-    }
 
 
     const [checkout, { loading }] = useMutation(CHECKOUT)
@@ -29,7 +24,6 @@ const CheckoutComponent = () => {
     const payAction = async (data) => {
         try {
             const source = await handleStripe()
-            console.log(source, data);
             await checkout({
                 variables: {
                     "input": {
@@ -79,6 +73,19 @@ const CheckoutComponent = () => {
         }
 
         return source
+    }
+
+    if (iscartEmpty === false) {
+        return (
+            <section className="section">
+                <div className="container text-center">
+                    <div className="display-4">Add Some Product To Cart</div>
+                    <div className="btn text-white">
+                        <Link href="/shop">Back To Shop</Link>
+                    </div>
+                </div>
+            </section>
+        )
     }
 
     return (
