@@ -8,7 +8,7 @@ const AllProduct = () => {
         notifyOnNetworkStatusChange: true,
     })
     const goods = data?.products?.edges ?? []
-    console.log(goods);
+
 
     const loadMore = () => {
         if (data?.products?.pageInfo?.endCursor) {
