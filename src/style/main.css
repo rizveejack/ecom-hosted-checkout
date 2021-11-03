@@ -58,6 +58,20 @@ p {
   padding: 0;
 }
 
+.category_img {
+  border-radius: 100%;
+  width: 150px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 9px #33333338;
+  padding: 2px;
+}
+
+.no_border {
+  border: 0px !important;
+}
+
+
+
 .navbar-toggler:focus,
 a:focus,
 input:focus,

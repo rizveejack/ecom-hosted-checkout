@@ -9,7 +9,7 @@ const MegaMenu = () => {
 
 
     const productCategories = data?.productCategories?.edges ?? []
-    const motherCat = productCategories.filter((cat) => cat.node.parentId === null && cat.node.count > 0)
+    const motherCat = productCategories.filter((cat) => cat.node.parentId === null)
 
 
 

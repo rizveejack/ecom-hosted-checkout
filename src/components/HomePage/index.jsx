@@ -9,9 +9,9 @@ const HomePage = () => {
     return (
         <div>
             <Slide />
+            <BannerSection />
             <Tranding />
             <CallToAction />
-            <BannerSection />
             <Shipinginfo />
         </div>
     )
