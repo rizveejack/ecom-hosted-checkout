@@ -22,7 +22,7 @@ const CheckoutComponent = () => {
     }
 
 
-    const [checkout] = useMutation(CHECKOUT)
+    const [checkout, { loading }] = useMutation(CHECKOUT)
     const stripe = useStripe()
     const elements = useElements()
 
@@ -36,7 +36,6 @@ const CheckoutComponent = () => {
                         "clientMutationId": source.id,
                         "paymentMethod": "stripe",
                         "shippingMethod": "Flat rate",
-                        "shipToDifferentAddress": true,
                         "shipping": data.billing,
                         "metaData": [
                             {
@@ -94,11 +93,13 @@ const CheckoutComponent = () => {
                             <ProductCart />
 
                             <PaymentOption />
-                            <button
-                                disabled={!stripe && true}
-                                className="btn btn-primary mt-3"
-                                type="submit">Pay Now
-                            </button>
+                            <div className="text-center">
+                                <button
+                                    disabled={!stripe && true}
+                                    className="btn btn-primary btn-block btn-lg  mt-3"
+                                    type="submit">Pay Now {loading && "..."}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
