@@ -7,7 +7,7 @@ const BannerSection = () => {
     const { loading, error, data } = useQuery(GET_CATEGORIES)
     const category = data?.productCategories?.edges ?? []
     const motherCat = category.filter((cat) => cat.node.parentId === null)
-    console.log(category);
+
     return (
         <section className="banner section">
             <div className="container">
