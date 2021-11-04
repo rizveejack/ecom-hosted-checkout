@@ -9,9 +9,9 @@ const ProfileForm = ({ viewer }) => {
     })
     const { register, handleSubmit, formState: { error } } = useForm()
 
-    const getFormData = (data) => {
+    const getFormData = (user_data) => {
         updateUser({
-            variables: data
+            variables: user_data
         })
 
         console.log(data);
@@ -55,6 +55,16 @@ const ProfileForm = ({ viewer }) => {
 
                     <div className="col-md-12">
                         <div className="single-form form-default">
+                            <div className="form-input form">
+                                <input
+                                    defaultValue={viewer.id}
+                                    {...register("id", { required: true })}
+                                    type="hidden" placeholder="Email Address" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-12">
+                        <div className="single-form form-default">
                             <label>Your Bio data</label>
                             <div className="form-group">
                                 <textarea
@@ -63,11 +73,10 @@ const ProfileForm = ({ viewer }) => {
                                     className="form-control"
                                     rows="6"
                                 />
-
-
                             </div>
                         </div>
                     </div>
+
                     <div className="price-table-btn button mt-3">
                         <button className="btn btn-alt" type="submit">
                             Update Profile {loading && "..."}

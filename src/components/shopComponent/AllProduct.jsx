@@ -1,10 +1,11 @@
 import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import RJ_ALL_PRODUCT from "../../apollo/query/RJ_ALL_PRODUCT";
 import ProductCart from "../Product/ProductCart";
 
 const AllProduct = () => {
-    const { data, fetchMore } = useQuery(RJ_ALL_PRODUCT, {
+    const { data, fetchMore, refetch } = useQuery(RJ_ALL_PRODUCT, {
         notifyOnNetworkStatusChange: true,
     })
     const goods = data?.products?.edges ?? []
@@ -21,6 +22,8 @@ const AllProduct = () => {
             })
         }
     }
+
+    useEffect(() => refetch(), [])
 
     return (
         <>

@@ -1,7 +1,8 @@
+const allowedImageWordPressDomain = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname
 module.exports = {
   reactStrictMode: true,
   images:{
-    domains: ['wordpress.rj','0.gravatar.com']
+    domains: [`${allowedImageWordPressDomain}`]
   }
     
   

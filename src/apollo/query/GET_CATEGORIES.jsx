@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 const GET_CATEGORIES = gql`query GET_CATEGORIES {
-	productCategories {
+	productCategories(first: 100) {
 		edges {
 		  node {
 			id

@@ -7,8 +7,8 @@ const Search = () => {
 
     const onSubmit = (value) => {
         router.push({
-            pathname: "/s",
-            query: { data: JSON.stringify(value) }
+            pathname: "/search",
+            query: { q: value.search }
         })
 
     }
@@ -16,18 +16,18 @@ const Search = () => {
     return (
 
         <div className="main-menu-search">
-
-            <div className="navbar-search search-style-5">
-                <div className="search-select">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="navbar-search search-style-5">
+                    <div className="search-input">
+                        <input type="text" placeholder="Search" {...register("search", { required: true })} />
+                    </div>
+                    <div className="search-btn">
+                        <button type="submit">
+                            <i className="lni lni-search-alt"></i>
+                        </button>
+                    </div>
                 </div>
-                <div className="search-input">
-                    <input type="text" placeholder="Search" {...register("search", { required: true })} />
-                </div>
-                <div className="search-btn">
-                    <button onClick={handleSubmit(onSubmit)}><i className="lni lni-search-alt"></i></button>
-                </div>
-            </div>
-
+            </form>
         </div>
 
     )
