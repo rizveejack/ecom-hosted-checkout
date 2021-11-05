@@ -1,3 +1,4 @@
+import Image from "next/image"
 import FrontEnd from "../layout/FrontEnd"
 
 const About = () => {
@@ -20,7 +21,13 @@ const About = () => {
 
                             <div className="single-team">
                                 <div className="image">
-                                    <img src="/images/placeholder.png" alt="#" />
+                                    <Image
+                                        src="/images/placeholder.png"
+                                        alt="#"
+                                        width={400}
+                                        height={400}
+                                        layout="responsive"
+                                    />
                                 </div>
                                 <div className="content">
                                     <div className="info">
@@ -43,7 +50,13 @@ const About = () => {
 
                             <div className="single-team">
                                 <div className="image">
-                                    <img src="/images/placeholder.png" alt="#" />
+                                    <Image
+                                        src="/images/placeholder.png"
+                                        alt="#"
+                                        width={400}
+                                        height={400}
+                                        layout="responsive"
+                                    />
                                 </div>
                                 <div className="content">
                                     <div className="info">
@@ -66,7 +79,13 @@ const About = () => {
 
                             <div className="single-team">
                                 <div className="image">
-                                    <img src="/images/placeholder.png" alt="#" />
+                                    <Image
+                                        src="/images/placeholder.png"
+                                        alt="#"
+                                        width={400}
+                                        height={400}
+                                        layout="responsive"
+                                    />
                                 </div>
                                 <div className="content">
                                     <div className="info">
@@ -89,7 +108,13 @@ const About = () => {
 
                             <div className="single-team">
                                 <div className="image">
-                                    <img src="/images/placeholder.png" alt="#" />
+                                    <Image
+                                        src="/images/placeholder.png"
+                                        alt="#"
+                                        width={400}
+                                        height={400}
+                                        layout="responsive"
+                                    />
                                 </div>
                                 <div className="content">
                                     <div className="info">
