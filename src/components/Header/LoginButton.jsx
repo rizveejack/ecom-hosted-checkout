@@ -11,7 +11,7 @@ const LoginButton = () => {
                     <Link href="/login">Sign In</Link>
                 </li>
                 <li>
-                    <Link href="#">Register</Link>
+                    <Link href="/signup">Register</Link>
                 </li>
             </ul>
         )

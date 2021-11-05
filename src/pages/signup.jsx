@@ -1,16 +1,17 @@
 import Unsubscribe from "../components/Auth/Unsubscribe";
-import LoginForm from "../components/Forms/LoginForm";
+import SignupForm from "../components/Forms/SignupForm";
 import FrontEnd from "../layout/FrontEnd";
 
-const Login = () => {
 
+const signup = () => {
     return (
         <FrontEnd>
             <Unsubscribe>
-                <LoginForm />
+                <SignupForm />
             </Unsubscribe>
+
         </FrontEnd>
     )
 }
 
-export default Login
+export default signup
