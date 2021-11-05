@@ -7,7 +7,12 @@ const ResetPassForm = (props) => {
     const [setPassword, { loading }] = useMutation(RESET_PASSWORD)
 
     const onSubmit = (data) => {
-        const value = { ...props, password: data.password }
+        const value = {
+            key: props.resetKey,
+            login: props.login,
+            password: data.password
+        }
+
         setPassword({
             variables: value
         })
@@ -22,7 +27,7 @@ const ResetPassForm = (props) => {
                         <input type="password" className="form-control" {...register("password", { required: true })} />
                         <small className="text-danger">{formError?.password && "This fild is required"}</small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Set Password{true && "..."}</button>
+                    <button type="submit" className="btn btn-primary">Set Password{loading && "..."}</button>
                 </form>
             </div>
         </div>

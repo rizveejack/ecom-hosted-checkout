@@ -7,7 +7,6 @@ const SignupForm = () => {
     const [loginAction, { loading }] = useMutation(SIGNUP)
 
     const onSubmit = (data) => {
-        console.log(data);
         loginAction({
             variables: data
         })
