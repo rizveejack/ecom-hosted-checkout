@@ -38,7 +38,7 @@ export const getStaticProps = async (context) => {
     const { params: { slug } } = context
     const data = await client.query({
         query: PRODUCT_BY_CATEGORY,
-        variables: { slug }
+        variables: { id: slug }
     })
     return {
         props: data?.data || {},

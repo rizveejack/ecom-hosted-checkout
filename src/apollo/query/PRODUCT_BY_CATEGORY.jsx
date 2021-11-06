@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client"
 
-const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($slug: ID!, $first: Int = 4) {
-	productCategory(id: $slug, idType: SLUG) {
+const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($id: ID!, $after: String="" , $first:Int=8) {
+	productCategory(id: $id, idType: SLUG) {
 	  id
 	  name
 	  slug
-	  products(first: $first) {
+	  products(after: $after, first: $first) {
 		edges {
 		  node {
 			id
@@ -55,7 +55,7 @@ const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($slug: ID!, $first: In
 		}
 	  }
 	}
-  }
+  }  
   `
 export default PRODUCT_BY_CATEGORY
 

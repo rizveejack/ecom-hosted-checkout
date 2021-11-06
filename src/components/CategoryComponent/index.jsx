@@ -10,25 +10,25 @@ const CategoryComponent = (props) => {
     const { data, fetchMore } = useQuery(PRODUCT_BY_CATEGORY, {
         notifyOnNetworkStatusChange: true,
         variables: {
-            first: 4,
-            slug: slug
+            id: slug
+
         }
     })
 
-    const allproducts = data?.productCategory?.products?.edges?.edges ?? products?.edges
+    const allproducts = data?.productCategory?.products?.edges ?? products?.edges
     const endCursor = data?.productCategory?.products?.pageInfo?.endCursor ?? products?.pageInfo.endCursor
     const hasNextPage = data?.productCategory?.products?.pageInfo?.hasNextPage ?? products?.pageInfo.hasNextPage
-
 
     const loadMore = () => {
         fetchMore({
             variables: {
-                after: endCursor
-
+                after: endCursor,
+                first: 4
             }
+
+
         })
     }
-
 
     if (isEmpty(allproducts)) {
         return (
@@ -83,6 +83,7 @@ const CategoryComponent = (props) => {
                     </InfiniteScroll>
 
                 </div>
+                <button onClick={loadMore}>click</button>
             </section>
         </>
     )
