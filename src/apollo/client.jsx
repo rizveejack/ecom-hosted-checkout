@@ -66,7 +66,7 @@ const client = new ApolloClient({
             Query: {
                 fields: {
                     products: relayStylePagination(),
-                },
+                }
             },
         }
     })

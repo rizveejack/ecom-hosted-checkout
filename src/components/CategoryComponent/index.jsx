@@ -19,11 +19,19 @@ const CategoryComponent = (props) => {
     const endCursor = data?.productCategory?.products?.pageInfo?.endCursor ?? products?.pageInfo.endCursor
     const hasNextPage = data?.productCategory?.products?.pageInfo?.hasNextPage ?? products?.pageInfo.hasNextPage
 
+
     const loadMore = () => {
         fetchMore({
             variables: {
                 after: endCursor,
                 first: 4
+            },
+            updateQuery: (prevResult, { fetchMoreResult }) => {
+                fetchMoreResult.productCategory.products.edges = [
+                    ...fetchMoreResult.productCategory.products.edges,
+                    ...prevResult.productCategory.products.edges
+                ]
+                return fetchMoreResult
             }
 
 
@@ -83,7 +91,6 @@ const CategoryComponent = (props) => {
                     </InfiniteScroll>
 
                 </div>
-                <button onClick={loadMore}>click</button>
             </section>
         </>
     )

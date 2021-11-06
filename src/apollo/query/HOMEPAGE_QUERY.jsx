@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 const HOMEPAGE_QUERY = gql`query HOMEPAGE_QUERY{
-    productCategories(where: {childless: true}) {
+    productCategories(first:100) {
       edges {
         node {
           id

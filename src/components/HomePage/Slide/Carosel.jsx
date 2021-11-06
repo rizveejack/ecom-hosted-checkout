@@ -23,7 +23,7 @@ const Carosel = (props) => {
                     <div className="col-6">
                         <div className="img-thumbnail">
                             <Image
-                                src={image.sourceUrl}
+                                src={image?.sourceUrl ?? "/images/placeholder.png"}
                                 alt="slider"
                                 width={400}
                                 height={400}

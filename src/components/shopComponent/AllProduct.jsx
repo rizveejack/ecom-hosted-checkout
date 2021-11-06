@@ -15,6 +15,8 @@ const AllProduct = (props) => {
     const endCursor = data?.products?.pageInfo?.endCursor ?? pageInfo.endCursor
     const hasNextPage = data?.products?.pageInfo?.hasNextPage ?? pageInfo.hasNextPage
 
+
+
     const loadMore = () => {
         fetchMore({
             variables: {

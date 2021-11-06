@@ -1,7 +1,9 @@
-import SingleBanner from './SingleBanner'
+import SingleBanner from './SingleBanner';
 
 const BannerSection = (props) => {
     const { edges } = props
+    const categorys = edges.filter((cat) => cat.node.parentId == null)
+
     return (
         <section className="banner section">
             <div className="container">
@@ -15,7 +17,7 @@ const BannerSection = (props) => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    {edges.map((cat) => {
+                    {categorys.map((cat) => {
                         return <SingleBanner {...cat.node} key={cat.node.id} />
                     })}
                 </div>
