@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { isEmpty } from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PRODUCT_BY_CATEGORY from "../../apollo/query/PRODUCT_BY_CATEGORY";
 import ProductCart from "../Product/ProductCart";
@@ -28,7 +29,8 @@ const CategoryComponent = (props) => {
         })
     }
 
-    if (allproducts.length <= 0) {
+
+    if (isEmpty(allproducts)) {
         return (
             <>
                 <section className="trending-product section" style={{ marginTop: "12px" }}>
