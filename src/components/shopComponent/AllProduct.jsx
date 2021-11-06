@@ -45,7 +45,7 @@ const AllProduct = (props) => {
                         dataLength={allproducts.length}
                         next={loadMore}
                         hasMore={hasNextPage}
-                        loader={<p>Loading...</p>}
+                        loader={null}
                         endMessage={<p className="text-center mt-5">✅ All posts loaded.</p>}
                     >
                         <div className="row">
