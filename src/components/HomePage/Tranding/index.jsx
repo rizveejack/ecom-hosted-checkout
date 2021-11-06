@@ -1,15 +1,7 @@
-import { useQuery } from "@apollo/client";
-import { useEffect } from "react";
-import RJ_ALL_PRODUCT from "../../../apollo/query/RJ_ALL_PRODUCT";
 import ProductCart from '../../Product/ProductCart';
 
-const Tranding = () => {
-    const { loading, data, refetch } = useQuery(RJ_ALL_PRODUCT)
-    const goods = data?.products?.edges ?? []
-
-    useEffect(() => {
-        refetch()
-    }, [])
+const Tranding = (props) => {
+    const { edges } = props
     return (
         <section className="trending-product section" style={{ marginTop: "12px" }}>
             <div className="container">
@@ -23,7 +15,7 @@ const Tranding = () => {
                     </div>
                 </div>
                 <div className="row">
-                    {!loading && goods.map((product) => {
+                    {edges.map((product) => {
                         return <ProductCart key={product.node.id} {...product.node} />
 
                     })}

@@ -5,12 +5,13 @@ import Slide from "./Slide"
 import Tranding from "./Tranding"
 
 
-const HomePage = () => {
+const HomePage = (props) => {
+    const { productCategories, products } = props
     return (
         <div>
-            <Slide />
-            <BannerSection />
-            <Tranding />
+            <Slide {...products} />
+            <BannerSection {...productCategories} />
+            <Tranding {...products} />
             <CallToAction />
             <Shipinginfo />
         </div>

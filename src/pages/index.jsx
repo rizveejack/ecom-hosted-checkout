@@ -1,14 +1,26 @@
+import client from "../apollo/client";
+import HOMEPAGE_QUERY from "../apollo/query/HOMEPAGE_QUERY";
 import HomePage from "../components/HomePage";
-import useRedox from "../hook/useRedox";
 import FrontEnd from "../layout/FrontEnd";
 
-const Home = () => {
-  const { gstate } = useRedox()
+const Home = (props) => {
   return (
     <FrontEnd>
-      <HomePage />
+      <HomePage {...props} />
     </FrontEnd>
   )
+}
+
+
+export const getStaticProps = async () => {
+  const data = await client.query({
+    query: HOMEPAGE_QUERY
+  })
+  return {
+    props: data?.data,
+    revalidate: 1
+  }
+
 }
 
 export default Home

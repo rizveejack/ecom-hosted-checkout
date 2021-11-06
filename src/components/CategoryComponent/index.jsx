@@ -1,36 +1,34 @@
 import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PRODUCT_BY_CATEGORY from "../../apollo/query/PRODUCT_BY_CATEGORY";
 import ProductCart from "../Product/ProductCart";
 
-const CategoryComponent = () => {
-    const router = useRouter()
+const CategoryComponent = (props) => {
+    const { name, slug, products } = props
 
-    const { loading, error, data, fetchMore } = useQuery(PRODUCT_BY_CATEGORY, {
+    const { data, fetchMore } = useQuery(PRODUCT_BY_CATEGORY, {
         notifyOnNetworkStatusChange: true,
         variables: {
-            slug: router.query.slug
+            first: 4,
+            slug: slug
         }
     })
-    const goods = data?.productCategory?.products?.edges ?? []
-    const catName = data?.productCategory?.name
 
+    const allproducts = data?.productCategory?.products?.edges?.edges ?? products?.edges
+    const endCursor = data?.productCategory?.products?.pageInfo?.endCursor ?? products?.pageInfo.endCursor
+    const hasNextPage = data?.productCategory?.products?.pageInfo?.hasNextPage ?? products?.pageInfo.hasNextPage
 
 
     const loadMore = () => {
-        if (data?.products?.pageInfo?.endCursor) {
-            fetchMore({
-                variables: {
+        fetchMore({
+            variables: {
+                after: endCursor
 
-                    after: data?.products?.pageInfo?.endCursor
-
-                }
-            })
-        }
+            }
+        })
     }
 
-    if (!loading && goods.length == 0) {
+    if (allproducts.length <= 0) {
         return (
             <>
                 <section className="trending-product section" style={{ marginTop: "12px" }}>
@@ -56,7 +54,7 @@ const CategoryComponent = () => {
                     <div className="row">
                         <div className="col-12">
                             <div className="section-title">
-                                <h2>{catName} Product</h2>
+                                <h2>{name} Product</h2>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                                     suffered alteration in some form.</p>
                             </div>
@@ -65,14 +63,14 @@ const CategoryComponent = () => {
 
                     <InfiniteScroll
                         style={{ overflowX: "hidden" }}
-                        dataLength={goods.length}
+                        dataLength={allproducts.length}
                         next={loadMore}
-                        hasMore={data?.products?.pageInfo?.hasNextPage}
-                        loader={<p>Loading...</p>}
+                        hasMore={hasNextPage}
+                        loader={null}
                         endMessage={<p className="text-center mt-5">✅ All posts loaded.</p>}
                     >
                         <div className="row">
-                            {goods.map((product) => {
+                            {allproducts.map((product) => {
                                 return (
 
                                     <ProductCart key={product.node.id} {...product.node} />

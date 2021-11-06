@@ -4,6 +4,7 @@ const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($slug: ID!, $first: In
 	productCategory(id: $slug, idType: SLUG) {
 	  id
 	  name
+	  slug
 	  products(first: $first) {
 		edges {
 		  node {

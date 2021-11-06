@@ -1,11 +1,10 @@
-import { gql } from "@apollo/client"
-
-const SLIDER_PRODUCT = gql`query SLIDE_PRODUCT($first: Int = 10) {
-    products(first: $first, where: {taxonomyFilter: {}, featured: true}) {
+import { gql } from "@apollo/client";
+const ALL_PRODUCT = gql`query ALL_PRODUCT($after: String = "", $first: Int = 8) {
+    products(first: $first, after: $after) {
       edges {
         node {
           id
-          description
+          databaseId
           type
           featured
           productId: databaseId
@@ -47,9 +46,12 @@ const SLIDER_PRODUCT = gql`query SLIDE_PRODUCT($first: Int = 10) {
           }
         }
       }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
     }
   }
-  `
+`
 
-
-export default SLIDER_PRODUCT
+export default ALL_PRODUCT;

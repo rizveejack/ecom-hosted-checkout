@@ -1,13 +1,7 @@
-import { useQuery } from "@apollo/client"
-import React from 'react'
-import GET_CATEGORIES from "../../../apollo/query/GET_CATEGORIES"
 import SingleBanner from './SingleBanner'
 
-const BannerSection = () => {
-    const { loading, error, data } = useQuery(GET_CATEGORIES)
-    const category = data?.productCategories?.edges ?? []
-    const motherCat = category.filter((cat) => cat.node.parentId === null)
-
+const BannerSection = (props) => {
+    const { edges } = props
     return (
         <section className="banner section">
             <div className="container">
@@ -21,7 +15,7 @@ const BannerSection = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    {motherCat.map((cat) => {
+                    {edges.map((cat) => {
                         return <SingleBanner {...cat.node} key={cat.node.id} />
                     })}
                 </div>

@@ -1,29 +1,30 @@
 import { useQuery } from "@apollo/client";
-import { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import RJ_ALL_PRODUCT from "../../apollo/query/RJ_ALL_PRODUCT";
+import ALL_PRODUCT from "../../apollo/query/ALL_PRODUCT";
 import ProductCart from "../Product/ProductCart";
 
-const AllProduct = () => {
-    const { data, fetchMore, refetch } = useQuery(RJ_ALL_PRODUCT, {
-        notifyOnNetworkStatusChange: true,
-    })
-    const goods = data?.products?.edges ?? []
 
+
+const AllProduct = (props) => {
+    const { products: { edges, pageInfo } } = props
+    const { data, fetchMore } = useQuery(ALL_PRODUCT, {
+        notifyOnNetworkStatusChange: true
+    })
+
+    const allproducts = data?.products?.edges ?? edges
+    const endCursor = data?.products?.pageInfo?.endCursor ?? pageInfo.endCursor
+    const hasNextPage = data?.products?.pageInfo?.hasNextPage ?? pageInfo.hasNextPage
 
     const loadMore = () => {
-        if (data?.products?.pageInfo?.endCursor) {
-            fetchMore({
-                variables: {
-                    first: 4,
-                    after: data?.products?.pageInfo?.endCursor
-
-                }
-            })
-        }
+        fetchMore({
+            variables: {
+                first: 4,
+                after: endCursor
+            }
+        })
     }
 
-    useEffect(() => refetch(), [])
+
 
     return (
         <>
@@ -41,14 +42,14 @@ const AllProduct = () => {
 
                     <InfiniteScroll
                         style={{ overflowX: "hidden" }}
-                        dataLength={goods.length}
+                        dataLength={allproducts.length}
                         next={loadMore}
-                        hasMore={data?.products?.pageInfo?.hasNextPage}
+                        hasMore={hasNextPage}
                         loader={<p>Loading...</p>}
                         endMessage={<p className="text-center mt-5">✅ All posts loaded.</p>}
                     >
                         <div className="row">
-                            {goods.map((product) => {
+                            {allproducts.map((product) => {
                                 return (
 
                                     <ProductCart key={product.node.id} {...product.node} />
@@ -57,7 +58,6 @@ const AllProduct = () => {
                             })}
                         </div>
                     </InfiniteScroll>
-
                 </div>
             </section>
         </>
