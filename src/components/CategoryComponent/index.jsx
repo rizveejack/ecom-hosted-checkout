@@ -25,18 +25,11 @@ const CategoryComponent = (props) => {
             variables: {
                 after: endCursor,
                 first: 4
-            },
-            updateQuery: (prevResult, { fetchMoreResult }) => {
-                fetchMoreResult.productCategory.products.edges = [
-                    ...fetchMoreResult.productCategory.products.edges,
-                    ...prevResult.productCategory.products.edges
-                ]
-                return fetchMoreResult
             }
-
-
         })
     }
+
+    console.log(data);
 
     if (isEmpty(allproducts)) {
         return (

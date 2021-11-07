@@ -66,8 +66,14 @@ const client = new ApolloClient({
             Query: {
                 fields: {
                     products: relayStylePagination(),
-                }
+                },
             },
+            // query for nested object
+            ProductCategory: {
+                fields: {
+                    products: relayStylePagination(),
+                },
+            }
         }
     })
 });

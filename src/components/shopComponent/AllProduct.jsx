@@ -26,7 +26,7 @@ const AllProduct = (props) => {
         })
     }
 
-
+    console.log(data);
 
     return (
         <>
