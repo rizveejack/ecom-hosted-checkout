@@ -18,9 +18,11 @@ const Logout = () => {
         }
     }, [gstate.isLogedin, gstate.isloading])
 
+    console.log(data);
+
     return (
         <Subscribe>
-            {!loading && "logout..."}
+            {!loading && <h1 className="text-center display-4 mt-5">logout...</h1>}
         </Subscribe>
     )
 }
