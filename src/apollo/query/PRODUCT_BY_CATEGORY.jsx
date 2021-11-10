@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 
-const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($id: ID!, $after: String="" , $first:Int=4) {
+const PRODUCT_BY_CATEGORY = gql`query PRODUCT_BY_CATEGORY($id: ID!, $after: String="" , $first:Int=12) {
 	productCategory(id: $id, idType: SLUG) {
 	  id
 	  name
