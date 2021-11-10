@@ -29,8 +29,6 @@ const CategoryComponent = (props) => {
         })
     }
 
-    console.log(data);
-
     if (isEmpty(allproducts)) {
         return (
             <>
