@@ -22,7 +22,7 @@ const LoginButton = () => {
             <Link href="/dashbord/profile" passHref>
                 <div className="user">
                     <i className="lni lni-user"></i>
-                    {gstate.isLogedin && gstate?.data?.viewer?.username}
+                    {gstate.isLogedin && gstate?.data?.viewer?.firstName}
                 </div>
             </Link>
             <ul className="user-login">
