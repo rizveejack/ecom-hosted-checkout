@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import AddToCart from "./AddToCart";
 
 const ProductCart = (props) => {
     const { name, price, slug, image, averageRating } = props
@@ -19,12 +18,6 @@ const ProductCart = (props) => {
                         placeholder="blur"
                     />
                     <span className="sale-tag">-25%</span>
-                    <div className="button">
-
-                        <AddToCart {...props} />
-
-
-                    </div>
                 </div>
                 <div className="product-info">
                     <span className="category">Laptop</span>
