@@ -7,8 +7,9 @@ const SignupForm = () => {
     const [loginAction, { loading }] = useMutation(SIGNUP)
 
     const onSubmit = (data) => {
+        const newData = { ...data, username: data.email }
         loginAction({
-            variables: data
+            variables: newData
         })
     }
 
@@ -26,12 +27,6 @@ const SignupForm = () => {
                         <input type="text" className="form-control" {...register("lastName", { required: true })} />
                         <small className="text-danger">{formError?.lastName && "This fild is required"}</small>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className="form-label">User Name</label>
-                        <input type="text" className="form-control" {...register("username", { required: true })} />
-                        <small className="text-danger">{formError?.username && "This fild is required"}</small>
-                    </div>
-
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                         <input type="email" className="form-control" {...register("email", { required: true })} />
