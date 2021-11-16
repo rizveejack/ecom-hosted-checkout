@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Carosel = (props) => {
-    const { description, name, price, slug, image } = props
+    const { shortDescription, name, price, slug, image } = props
     return (
         <div className="single-slider">
             <div className="content container-fluid">
@@ -11,7 +11,7 @@ const Carosel = (props) => {
                         <h2><span>No restocking fee ($35 savings)</span>
                             {name}
                         </h2>
-                        <div dangerouslySetInnerHTML={{ __html: description }} />
+                        <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
 
                         <h3><span>Now Only</span> {price}</h3>
                         <div className="button">
@@ -23,10 +23,10 @@ const Carosel = (props) => {
                     <div className="col-6">
                         <div className="img-thumbnail">
                             <Image
-                                src={image?.sourceUrl ?? "/images/placeholder.png"}
+                                src={image?.mediaItemUrl ?? "/images/placeholder.png"}
                                 alt="slider"
-                                width={400}
-                                height={400}
+                                width={image?.mediaDetails?.width ?? 400}
+                                height={image?.mediaDetails?.height ?? 400}
                                 layout="responsive"
                             />
                         </div>

@@ -6,10 +6,10 @@ import Tranding from "./Tranding"
 
 
 const HomePage = (props) => {
-    const { productCategories, products } = props
+    const { productCategories, products, slider } = props
     return (
         <div>
-            <Slide {...products} />
+            <Slide {...slider} />
             <BannerSection {...productCategories} />
             <Tranding {...products} />
             <CallToAction />
