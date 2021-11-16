@@ -16,7 +16,7 @@ const Logout = () => {
         if (gstate.isLogedin && !gstate.isloading) {
             logOut()
         }
-    }, [gstate.isLogedin, gstate.isloading])
+    }, [gstate.isLogedin, gstate.isloading, logOut])
 
     console.log(data);
 

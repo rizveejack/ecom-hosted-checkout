@@ -13,7 +13,7 @@ const Unsubscribe = ({ children }) => {
                 pathname: router.query.next ?? "/dashbord",
             });
         }
-    }, [gstate.loading, gstate.isLogedin])
+    }, [gstate.loading, gstate.isLogedin, router])
 
     if (!gstate.isLogedin) {
 

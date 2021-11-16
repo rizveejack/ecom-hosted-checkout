@@ -32,7 +32,7 @@ const SearchComponent = () => {
 
     useEffect(() => {
         refetch()
-    }, [query])
+    }, [refetch])
 
     if (empty) {
         return (

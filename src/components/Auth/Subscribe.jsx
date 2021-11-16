@@ -14,7 +14,7 @@ const Subscribe = ({ children }) => {
                 query: { next: pathname },
             })
         }
-    }, [gstate.loading, gstate.isLogedin])
+    }, [gstate.loading, gstate.isLogedin, pathname, router])
 
     if (gstate.isLogedin) {
 
