@@ -37,7 +37,7 @@ const OrderTable = () => {
                                         #{order.node.orderNumber}
                                     </div>
                                 </td>
-                                <td>{Moment(order.node.date).format('d MMM y')}</td>
+                                <td>{Moment(order.node.date).format('MMM Do YY')}</td>
                                 <td>{order.node.paymentMethodTitle}</td>
                                 <td>{order.node.total}</td>
                                 <td>
