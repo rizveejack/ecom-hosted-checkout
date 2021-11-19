@@ -14,7 +14,7 @@ const SingleBanner = (props) => {
                         alt="#"
                         height={200}
                         width={200}
-                        layout="responsive"
+                        layout="intrinsic"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                         placeholder="blur"
                     />
