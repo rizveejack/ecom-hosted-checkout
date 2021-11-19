@@ -16,7 +16,9 @@ const FooterTop = () => {
                                             alt="Footer Logo"
                                             width={200}
                                             height={42}
-                                            layout="fixed"
+                                            layout="intrinsic"
+                                            placeholder="blur"
+                                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                                         />
                                     </span>
                                 </Link>

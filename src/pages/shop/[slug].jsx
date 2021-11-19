@@ -1,11 +1,12 @@
 import Image from "next/image";
 import client from "../../apollo/client";
-import PRODUCT_SLUGS from "../../apollo/query/ALL_PRODUCT_SLUGS";
+import ALL_PRODUCT_SLUGS from "../../apollo/query/ALL_PRODUCT_SLUGS";
 import PRODUCT_BY_SLUG from "../../apollo/query/PRODUCT_BY_SLUG";
 import AddToCart from "../../components/Product/AddToCart";
 import FrontEnd from "../../layout/FrontEnd";
 
 const SingleProduct = ({ product }) => {
+
 
     return (
         <FrontEnd>
@@ -19,7 +20,7 @@ const SingleProduct = ({ product }) => {
                             height={400}
                             width={400}
                             layout="intrinsic"
-                            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc/Op/PQAHkQL9VgAfCwAAAABJRU5ErkJggg=="
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                             placeholder="blur"
                         />
                     </div>
@@ -37,8 +38,27 @@ const SingleProduct = ({ product }) => {
     )
 }
 
-export const getStaticProps = async (context) => {
 
+
+
+export const getStaticPaths = async () => {
+    const data = await client.query({ query: ALL_PRODUCT_SLUGS })
+    const paths = data?.data?.products?.nodes.map((pdata) => {
+
+        return {
+            params: { slug: pdata.slug }
+        }
+    })
+
+    return {
+        paths: paths,
+        fallback: true,
+    };
+
+
+}
+
+export const getStaticProps = async (context) => {
     const { params: { slug } } = context
 
     const { data } = await client.query({
@@ -48,29 +68,12 @@ export const getStaticProps = async (context) => {
 
     return {
         props: {
-            product: data?.product || {},
+            product: data?.product ?? null,
         },
-        revalidate: 1
-    };
-}
+        revalidate: 1,
 
-export const getStaticPaths = async () => {
-    const { data } = await client.query({
-        query: PRODUCT_SLUGS
-    })
-
-    const pathsData = []
-
-    data?.products?.nodes.map((product) => {
-        if (product?.slug) {
-            pathsData.push({ params: { slug: product?.slug } })
-        }
-    })
-
-    return {
-        paths: pathsData,
-        fallback: true
     }
 }
+
 
 export default SingleProduct

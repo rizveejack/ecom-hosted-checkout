@@ -56,6 +56,8 @@ const CartItem = () => {
                                             layout="intrinsic"
                                             width={60}
                                             height={60}
+                                            placeholder="blur"
+                                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                                         />
                                     </div>
                                 </div>

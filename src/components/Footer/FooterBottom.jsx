@@ -13,7 +13,9 @@ const FooterBottom = () => {
                                     src="/images/footer/credit-cards-footer.png" alt="payment"
                                     width={200}
                                     height={25}
-                                    layout="fixed"
+                                    layout="intrinsic"
+                                    placeholder="blur"
+                                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                                 />
                             </div>
                         </div>

@@ -45,7 +45,9 @@ const CartSingleProduct = (props) => {
                         <Image
                             width={80}
                             height={80}
-                            layout="fixed"
+                            layout="intrinsic"
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                             src={product?.node?.image?.sourceUrl ?? "/images/placeholder.jpg"}
                             alt="#" />
                     </a>

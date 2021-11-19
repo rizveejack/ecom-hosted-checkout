@@ -12,9 +12,9 @@ const Logo = () => {
                         alt="Logo"
                         width={200}
                         height={42}
-                        layout="fixed"
+                        layout="intrinsic"
                         placeholder="blur"
-                        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc/Op/PQAHkQL9VgAfCwAAAABJRU5ErkJggg=="
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                     />
                 </div>
             </Link>

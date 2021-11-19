@@ -13,8 +13,8 @@ const ProductCart = (props) => {
                         alt="#"
                         height={400}
                         width={400}
-                        layout="responsive"
-                        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc/Op/PQAHkQL9VgAfCwAAAABJRU5ErkJggg=="
+                        layout="intrinsic"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
                         placeholder="blur"
                     />
                     <span className="sale-tag">-25%</span>
