@@ -1,6 +1,10 @@
-import Slider from "react-slick";
+
+import dynamic from "next/dynamic";
 import Banner from "./Banner";
 import Carosel from "./Carosel";
+
+
+const Slider = dynamic(() => import("react-slick"))
 
 
 const SLIDER_SETTINGS = {
