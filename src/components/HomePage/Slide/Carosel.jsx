@@ -28,8 +28,7 @@ const Carosel = (props) => {
                                 width={image?.mediaDetails?.width ?? 400}
                                 height={image?.mediaDetails?.height ?? 400}
                                 layout="intrinsic"
-                                placeholder="blur"
-                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P9fDAAFGwIWTcQ9nAAAAABJRU5ErkJggg=="
+                                priority
                             />
                         </div>
                     </div>
