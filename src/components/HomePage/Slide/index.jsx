@@ -10,6 +10,7 @@ const SLIDER_SETTINGS = {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    lazyLoad: "progressive"
 }
 
 

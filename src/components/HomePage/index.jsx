@@ -1,8 +1,11 @@
+import dynamic from "next/dynamic"
 import BannerSection from "./BannerSection"
 import CallToAction from "./CallToAction"
 import Shipinginfo from "./ShipingInfo"
-import Slide from "./Slide"
 import Tranding from "./Tranding"
+
+
+const Slide = dynamic(() => import("./Slide"))
 
 
 const HomePage = (props) => {
