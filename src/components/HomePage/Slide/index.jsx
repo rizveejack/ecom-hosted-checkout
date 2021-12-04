@@ -1,20 +1,17 @@
 
-import dynamic from "next/dynamic";
+import Slider from "react-slick";
 import Banner from "./Banner";
 import Carosel from "./Carosel";
 
 
-const Slider = dynamic(() => import("react-slick"))
-
-
 const SLIDER_SETTINGS = {
-    rtl: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    lazyLoad: "progressive"
+    lazyLoad: "progressive",
+    fade: true
 }
 
 
